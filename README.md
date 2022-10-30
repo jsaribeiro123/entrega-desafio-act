@@ -15,7 +15,7 @@
 
     * Desenho da Solução
     * Pode ser feito na linguagem que voce domina
-    * Boas praticas são bem vindas (Design Patterns, Padrões de arquitetura, SOLID e etc)
+    * Boas praticas são bem vindas (Design Patterns, Padrões de arquitetura, SOLID e etc)  
     * Readme com instruções de como subir a aplicação local, container e utilização dos serviços
     * Hospedar em repositorio publico (Github) 
 
