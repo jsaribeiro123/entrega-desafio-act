@@ -50,14 +50,14 @@
 
     Enunciado:
 
-    Ampliando o enunciado do desafio, definiu-se que o comerciante compra e vende NFTs, um produto digital representado por um token associado a um ativo digital.
+    Ampliando o enunciado do desafio, definiu-se que o comerciante compra e vende NFTs, um produto digital representado por um token associado a um ativo digital.  
 
-    Foi utlizado o conceito de carteira (wallet) para representar o caixa do comerciante de NFTs.
+    Foi utlizado o conceito de carteira (wallet) para representar o caixa do comerciante de NFTs.  
 
-    Serão necessarios para a movimentação da carteira os serviços de lançamentos do tipo credito e tipo debito, e o servico report 
+    Serão necessarios para a movimentação da carteira os serviços de lançamentos do tipo credito e tipo debito, e o servico report   
 
     Ator:
-            Comerciante, responsável pelo uso da aplicação para o registro dos lançamentos de compra e venda de NFTs.
+            Comerciante, responsável pelo uso da aplicação para o registro dos lançamentos de compra e venda de NFTs.  
 
     Sistemas : 
                 App, responsavel pela entrada de dados do ator
