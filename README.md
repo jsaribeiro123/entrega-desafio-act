@@ -15,7 +15,7 @@
 
     * Desenho da Solução
     * Pode ser feito na linguagem que voce domina
-    * Boas praticas são bem vindas (Design Patterns, Padrões de arquitetura, SOLID e etc)         
+    * Boas praticas são bem vindas (Design Patterns, Padrões de arquitetura, SOLID e etc)
     * Readme com instruções de como subir a aplicação local, container e utilização dos serviços
     * Hospedar em repositorio publico (Github) 
 
@@ -98,8 +98,6 @@
     4 - Caso o valor do saldo seja menor que o valor do debito, uma msg deve ser apresentada informando o saldo e a impossibilidade de efetuar o lançamento.    
 
     5 - A cada lançamento seja do tipo debito ou credito uma mensagem de confirmação da efetividade do lançamento deve ser emitida.   
-
-## Planejamento
 
 ## Aplicação web
 
@@ -190,24 +188,6 @@
     Obter o consolidado do periodo diario.
     Obter o consolidado em um periodo definido.
 
-## Desenvolvimento
-
-    IDEs
-    Frameworks
-
-    - Criação do projeto central
-        Solução 
-        - Elaboração da arquitetura
-            Design
-        - Testes
-            Tests
-        - Infraestrutura
-            Midleware - Kafka
-        - Api-Serviços
-            Lancamento
-            Consolidado
-        - Aplicação
-
 ## Implementando
 
     git init --initial-branch=main
@@ -232,12 +212,6 @@
                     relaciona-os com outros contêineres ou outros sistemas. 
 
     Código(L4):     fornece mais detalhes sobre como o código real está sendo implementado. 
-
-    The existing .NET ecosystem built extensibility around IServiceCollection, IHostBuilder, IWebHostBuilder.   
-
-    These properties are available on  WebApplicationBuilder as Services, Host, and WebHost.
-    WebApplication implements both Microsoft.AspNetCore.Builder.IApplicationBuilder and 
-    Microsoft.AspNetCore.Routing.IEndpointRouteBuilder.
 
     Fluxo
      Setup
@@ -268,62 +242,23 @@
         - get
         api/consumer/relatorio 
         obtem as mensagens do topico relatorio
-        
-    dotnet new sln
-    
-    dotnet new web   -o .\Api\Producer\Lancamento   -n  Api.Producer.Lancamento
-    dotnet new xunit -o .\Tests\Producer\Lancamento -n  Api.Producer.Lancamento.Test
 
-    dotnet add          .\Tests\Producer\Lancamento\Api.Producer.Lancamento.Test.csproj reference \Api\Producer\Lancamento\Api.Producer.Lancamento.csproj
-   
-    dotnet sln add      .\Tests\Producer\Lancamento\Api.Producer.Lancamento.Test.csproj
-    dotnet sln add      .\Api\Producer\Lancamento\Api.Producer.Lancamento.csproj
+## Implantando
 
-    dotnet new web -o   .\Api\Producer\Report  -n Api.Producer.Report
-    dotnet new xunit -o .\Tests\Producer\Report -n Api.Producer.Report.Test
+    - A implantação foi realizada no Docker Desktop ambiente windows.
 
-    dotnet add          .\Tests\Producer\Report\Api.Producer.Report.Test.csproj reference .\Api\Producer\Report\Api.Producer.Report.csproj
+    - O projeto pode ser visualizado seguindo os passos
+        Instalação do C4Builder
+            npm i -g c4builder
+        Entrar na pasta Project e executar
+            c4builder 
+            c4builder site  
 
-    dotnet new web -o   .\Api\Consumer\Lancamento -n  Api.Consumer.Lancamento
-    dotnet new xunit -o .\Tests\Consumer\Lancamento -n  Api.Consumer.Lancamento.Test
+    - Entrar no diretorio principal e executar:
+            docker-compose up
 
-    dotnet add          .\Tests\Consumer\Lancamento\Api.Consumer.Lancamento.Test.csproj reference .\Api\Consumer\Lancamento\Api.Consumer.Lancamento.csproj
-
-    dotnet sln add      .\Tests\Consumer\Lancamento\Api.Consumer.Lancamento.Test.csproj
-    dotnet sln add      .\Api\Consumer\Lancamento\Api.Consumer.Lancamento.csproj
-
-    dotnet new web -o   .\Api\Consumer\Report  -n Api.Consumer.Report
-    dotnet new xunit -o .\Tests\Consumer\Report -n Api.Consumer.Report.Test
-
-    dotnet add          .\Tests\Consumer\Report\Api.Consumer.Report.Test.csproj reference .\Api\Consumer\Report\Api.Consumer.Report.csproj
-
-    dotnet sln add      .\Tests\Consumer\Report\Api.Consumer.Report.Test.csproj
-    dotnet sln add      .\Api\Consumer\Report\Api.Consumer.Report.csproj
-
-    dotnet new webapp -o App-Nft
-    dotnet watch run
-
-    docker-compose -f docker-compose.yml -f docker-compose-test.override.yml up -d ./run_unit_tests
-    docker-compose -f docker-compose.yml -f docker-compose-test.override.yml down
-
-    dotnet tool uninstall --global dotnet-aspnet-codegenerator
-    dotnet tool install --global dotnet-aspnet-codegenerator
-    dotnet tool uninstall --global dotnet-ef
-    dotnet tool install --global dotnet-ef
-    dotnet add package Microsoft.EntityFrameworkCore.Design
-    dotnet add package Microsoft.EntityFrameworkCore.SQLite
-    dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
-    dotnet add package Microsoft.EntityFrameworkCore.SqlServer
-
-    dotnet aspnet-codegenerator razorpage -m Lancamento -dc RazorAppNftContext -udl -outDir Pages/Lancamentos --referenceScriptLibraries -sqlite
-
-    dotnet tool install --global dotnet-ef
-    dotnet ef migrations add InitialCreate
-    dotnet ef database update
-
-    dotnet aspnet-codegenerator razorpage -m Report -dc RazorAppNftContext -udl -outDir Pages/Reports --referenceScriptLibraries -sqlite
-
-    dotnet add Services.Lancamento.csproj package NSwag.AspNetCore
+    - A execução dos testes é feita entrando na pasta Tests e executando no prompt do power shell
+        ./testproject.ps1        
 
 ## Resultado Esperado
 
