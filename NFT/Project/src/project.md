@@ -1,6 +1,6 @@
 #
 
-## Definições
+    Definições:
 
     Ampliando o enunciado do desafio, definiu-se que o comerciante compra e vende NFTs, 
     um produto digital representado por um token associado a um ativo digital.

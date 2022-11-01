@@ -1,0 +1,24 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(pbc, "Comerciante", "Ator que interage com o sistema.")
+
+System_Ext(mbs, "Repository", "Base de dados para persistir os lançamentos e dados do sistema.")
+System_Ext(kfk, "Kafka", "Broker para distribuição das solicitações do sistema.")
+System_Ext(mbs, "Repository", "Base de dados para persistir os lançamentos.")
+
+System_Boundary(ibs, "Wallet") {
+    Container(wa, "Web App", "Razor", "Entrada para efetuar os lançamentos e obter o ralatório consolidado.")
+    Container(api, "API ", ".net core 6", "JSON/HTTP API.")
+
+    Rel(api, mbs, "Uses", "")
+    Rel(api, kfk, "", "Topico")
+    Rel(wa, api, "Interage")
+}
+
+Rel(pbc, wa, "Uses", "HTTPS")
+
+
+@enduml

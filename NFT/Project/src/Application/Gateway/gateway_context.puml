@@ -1,0 +1,23 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Deployment.puml
+
+:Comerciante efetua autenticação no AppWeb;
+:Realiza um lançamento;
+:AppWeb encaminha REQUEST ao Gateway;
+
+    if (REQUEST efetivado?) then (yes)
+        fork
+            :Api Consumer Lancamento;
+        fork again
+            :Api Consumer Report;
+        fork again
+            :Api Producer Lancamento;
+        fork again
+            :Api Producer Report;
+        end fork
+    else (no)
+        #pink::Alerta o monitoramento;
+    endif
+
+stop
+@enduml

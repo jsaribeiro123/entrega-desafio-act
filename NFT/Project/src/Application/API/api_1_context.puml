@@ -1,0 +1,26 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Deployment.puml
+
+!define DEVICONS /plantuml-icon-font-sprites/devicons
+!define FONTAWESOME /plantuml-icon-font-sprites/font-awesome-5
+
+LAYOUT_TOP_DOWN()
+LAYOUT_WITH_LEGEND()
+
+title Context Diagram
+
+Person(person_authorized,     "Autenticação da Api", "Gateway Api", "user_check")
+
+System(system, "Wallet", "NFT, controla o fluxo de caixa.")
+
+System_Ext(system_ext_authorization, "Autenticador", "Autoriza o uso da api.")
+System_Ext(system_ext_publisher1,    "Topico: Lançamento ",  "Fila de lançamentos")
+System_Ext(system_ext_publisher2,    "Topico Report ",   "Fila de Report")
+
+Rel(person_authorized, system, "Valida as credencias")
+
+Rel(system, system_ext_authorization, "Valida as credencias")
+Rel(system, system_ext_publisher1,    "Inscreve msg no topico.")
+Rel(system, system_ext_publisher2,    "Inscreve msg no topico.")
+
+@enduml

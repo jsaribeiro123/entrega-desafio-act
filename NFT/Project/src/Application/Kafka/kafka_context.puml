@@ -1,0 +1,19 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Deployment.puml
+
+:Api efetua autenticação;
+:Realiza um lançamento;
+:Inscreve no TOPICO - Kafka;
+
+    if (Inscrição efetivada?) then (yes)
+        fork
+            :Topico Lancamento;
+        fork again
+            :Topico Report;
+        end fork
+    else (no)
+        #pink::Alerta o monitoramento;
+    endif
+
+stop
+@enduml
